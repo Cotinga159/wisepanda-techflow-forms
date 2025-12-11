@@ -15,18 +15,14 @@ export function cleanText(text) {
   if (!(typeof text === "string")) {
     console.log("Ceci n'est pas un text")
   } else {
-    console.log("C'est un texte")
     const dangereux = [`<`, `>`, `"`, `'`]
 let result = text
 dangereux.forEach((element) => { 
   const regex = new RegExp(element, "g")
-  console.log(element)
   result = result.replace(regex, "");
-console.log(result);
 return result
   });
 result = result.trim()
-    console.log(result)
   }
   // TODO:
   // 1. Vérifier que le paramètre est bien une string
@@ -48,10 +44,13 @@ cleanText(`   coc"cinel><<<<<'le`)
 export function isEmpty(value) {
   if (!value) {
     console.log("Erreur sur la saisie")
+    return true
   } else if (value.trim().length === 0) {
     console.log("Rien n'a été écrit")
+    return true
   } else {
     console.log("Le champs n'est pas vide")
+    return false
   }
   // TODO:
   // 1. Vérifier si value existe (pas null, undefined, etc.)
@@ -61,12 +60,31 @@ export function isEmpty(value) {
   // Hint: length === 0 peut être utilisé pour vérifier si vide
 }
 isEmpty("er")
+
+
+
+
+
 /**
  * Valide une adresse email avec regex simple mais efficace
  * @param {string} email - Email à valider
  * @returns {boolean} - true si valide
  */
 export function isValidEmail(email) {
+  
+  if (isEmpty(email)===false) {
+const regex = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
+if (regex.test(email)) {
+  console.log("email valide")
+  return true
+} else {
+  console.log("email invalide")
+  return false
+} 
+  } else {
+    console.log("champ vide")
+    return false
+  }
   // TODO:
   // 1. D'abord vérifier que l'email n'est pas vide
   // 2. Créer une regex pour valider le format email
@@ -75,7 +93,7 @@ export function isValidEmail(email) {
   // Hint: Une regex simple : /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   // Hint: Utilisez test() sur votre regex
 }
-
+isValidEmail("pomme@gmail.com")
 /**
  * Vérifie la longueur minimale d'un texte
  * @param {string} text - Texte à vérifier
@@ -83,12 +101,11 @@ export function isValidEmail(email) {
  * @returns {boolean} - true si assez long
  */
 export function hasMinLength(text, minLength) {
-  if ((text === "")) {
+  if (isEmpty(text) === true) {
 console.log("C'est vide")
   } else  {
     cleanText(text)
     if (text.length >= minLength) {
-      console.log("Ca marche")
       return true
     } else {
       console.log("text trop court")
