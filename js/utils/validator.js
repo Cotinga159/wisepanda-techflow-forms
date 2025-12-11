@@ -126,6 +126,16 @@ hasMinLength(`   coc"cinel><<<<<'le`, 5)
  * @param {string} message - Message d'erreur à afficher
  */
 export function showError(fieldId, message) {
+  const field = document.getElementById(fieldId)
+  
+    field.classList.remove("border-gray-300")
+    field.classList.add("border-red-500")
+    
+    const errorId = fieldId + "-error"
+    const errorField = document.getElementById(errorId)
+    errorField.classList.remove("hidden")
+    errorField.textContent = message
+
   // TODO:
   // 1. Trouver l'élément d'erreur (ID: fieldId + "-error")
   // 2. Trouver l'élément input correspondant
@@ -137,7 +147,7 @@ export function showError(fieldId, message) {
   // Hint: classList.add/remove pour gérer les classes CSS
   // Hint: Classes à manipuler : "hidden", "border-red-500", "border-gray-300"
 }
-
+showError("password", "erreur de saisie")
 /**
  * ✅ Cache le message d'erreur pour un champ
  * @param {string} fieldId - ID du champ
