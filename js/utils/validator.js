@@ -153,6 +153,11 @@ showError("password", "erreur de saisie")
  * @param {string} fieldId - ID du champ
  */
 export function hideError(fieldId) {
+  const errorField = document.getElementById(fieldId + "-error")
+  const field = document.getElementById(fieldId)
+  errorField.classList.add("hidden")
+  field.classList.remove("border-red-500")
+  field.classList.add("border-gray-300")
   // TODO:
   // 1. Trouver l'élément d'erreur et l'élément input
   // 2. Cacher l'élément d'erreur (ajouter classe "hidden")
@@ -161,7 +166,7 @@ export function hideError(fieldId) {
   // Hint: Inverse de showError()
   // Hint: Enlever "border-red-500" et remettre "border-gray-300"
 }
-
+hideError("password")
 /**
  * 🎉 Affiche le message de succès global
  */
