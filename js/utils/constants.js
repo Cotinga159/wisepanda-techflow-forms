@@ -73,7 +73,7 @@ export const validationMessages = {
   },
 
   rgpd: {
-
+    condition: "Acceptez les conditions d'utilisations"
     // TODO: Message pour acceptation des conditions
   },
 
@@ -150,6 +150,11 @@ export const validationResults = {
   },
 
   error: (message) => {
+    const error = {
+      isValid : false,
+      errorMessage: message
+    }
+    return error
     // TODO: Fonction qui retourne un objet d'erreur
     // Paramètre: message d'erreur personnalisé
     // Hint: Retourne un objet avec isValid: false et le message
@@ -169,11 +174,14 @@ export const cssClasses = {
   },
 
   success: {
+    field: "border-green-500, bg-green-50"
     // TODO: Classes pour champ validé avec succès
     // Hint: border-green-500, bg-green-50
   },
 
   default: {
+    field: "border-gray-300",
+    focus: "border-blue-500 ring-1 ring-blue-500"
     // TODO: Classes par défaut et focus
     // Hint: border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500.
   },
