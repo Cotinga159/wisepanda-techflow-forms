@@ -34,7 +34,7 @@ result = result.trim()
   // Hint: Utilisez replace() avec RegExp et le flag "g" pour remplacer toutes les occurrences
   // Hint: trim() enlève les espaces en début/fin
 }
-cleanText(`   coc"cinel><<<<<'le`)
+// cleanText(`   coc"cinel><<<<<'le`)
 
 /**
  * Vérifie si un champ est vide ou contient seulement des espaces
@@ -59,7 +59,7 @@ export function isEmpty(value) {
   // Hint: Utilisez l'opérateur ! et trim()
   // Hint: length === 0 peut être utilisé pour vérifier si vide
 }
-isEmpty("er")
+// isEmpty("er")
 
 
 
@@ -93,7 +93,7 @@ if (regex.test(email)) {
   // Hint: Une regex simple : /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   // Hint: Utilisez test() sur votre regex
 }
-isValidEmail("pomme@gmail.com")
+// isValidEmail("pomme@gmail.com")
 /**
  * Vérifie la longueur minimale d'un texte
  * @param {string} text - Texte à vérifier
@@ -119,7 +119,7 @@ console.log("C'est vide")
   // Hint: Réutilisez la fonction isEmpty()
   // Hint: trim().length >= minLength
 }
-hasMinLength(`   coc"cinel><<<<<'le`, 5)
+// hasMinLength(`   coc"cinel><<<<<'le`, 5)
 /**
  * 🎨 Affiche un message d'erreur pour un champ spécifique
  * @param {string} fieldId - ID du champ en erreur
@@ -147,7 +147,7 @@ export function showError(fieldId, message) {
   // Hint: classList.add/remove pour gérer les classes CSS
   // Hint: Classes à manipuler : "hidden", "border-red-500", "border-gray-300"
 }
-showError("password", "erreur de saisie")
+// showError("password", "erreur de saisie")
 /**
  * ✅ Cache le message d'erreur pour un champ
  * @param {string} fieldId - ID du champ
@@ -166,11 +166,14 @@ export function hideError(fieldId) {
   // Hint: Inverse de showError()
   // Hint: Enlever "border-red-500" et remettre "border-gray-300"
 }
-hideError("password")
+// hideError("password")
 /**
  * 🎉 Affiche le message de succès global
  */
 export function showSuccess() {
+  const successField = document.getElementById("success")
+  successField.classList.remove("hidden")
+  successField.scrollIntoView({ behavior: "smooth" })
   // TODO:
   // 1. Trouver l'élément de succès (ID: "success")
   // 2. Le rendre visible en enlevant la classe "hidden"
@@ -178,7 +181,7 @@ export function showSuccess() {
   //
   // Hint: scrollIntoView() avec { behavior: "smooth" }
 }
-
+// showSuccess()
 /**
  * 📚 CONCEPTS À RETENIR :
  *
